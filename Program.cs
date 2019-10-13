@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace humans_and_animals
 {
     class Program
     {
+        static List <SanctuaryResidants> animals = new List<SanctuaryResidants>();
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
