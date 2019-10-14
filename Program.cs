@@ -8,9 +8,20 @@ namespace humans_and_animals
 {
     class Program
     {
-        static List <SactuaryResidents> animals = new List<SactuaryResidents>();
+        static void printAnimals(){
+            Console.WriteLine("I djur helgedomen finns det:");
+            
+            foreach(SactuaryResidents Resident in animals){
+                Console.WriteLine("En "+Resident.Species+" som heter "+Resident.name);
+ 
+            }
+        }
         static void Main(string[] args)
         {
+            
+            List <SactuaryResidents> animals = new List<SactuaryResidents>();
+
+            //Deklarerar djur, ger dom namn och lägger till i listan
             giraffe Amanda = new giraffe();
             Amanda.name = "Amanda";
             animals.Add(Amanda);
@@ -64,12 +75,6 @@ namespace humans_and_animals
             bear Konrad = new bear();
             Konrad.name = "Konrad";
             animals.Add(Konrad);
-
-            Console.WriteLine("I djur helgedomen finns det:");
-            foreach(SactuaryResidents Resident in animals){
-                Console.WriteLine("En "+Resident.Species+" som heter "+Resident.name);
- 
-            }
 
             int nrOfMeatLeft = 50;
             int nrOfVeggiesLeft = 50;
