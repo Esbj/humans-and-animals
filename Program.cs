@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-
+/*
+    Skapa en lista med olika djur som finns i djurparken, minst ett av varje typ av djur.
+    När man kör programmet ska alla djur, deras typ och deras namn skrivas ut på skärmen.
+*/
 namespace humans_and_animals
 {
     class Program
     {
-        static List <SanctuaryResidants> animals = new List<SanctuaryResidants>();
+        static List <SactuaryResidents> animals = new List<SactuaryResidents>();
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
