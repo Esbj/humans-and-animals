@@ -5,9 +5,13 @@ namespace humans_and_animals
     public class SactuaryResidents{
         public int hungerLevel;
         public string name;
+        public int age;
         public int maxHunger;
+        public string Species;
         public SactuaryResidents(){
             hungerLevel = 0;
+            age = 0;
+            Species = "Unknown";
         }
     }
     public class Eater : SactuaryResidents{
