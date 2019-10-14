@@ -1,21 +1,18 @@
 using System;
 using System.Collections.Generic;
-namespace humans_and_animals
-{
-    public class SactuaryResidents{
-        int hungerLevel;
-        string name;
-        public SactuaryResidents(){
-            hungerLevel = 0;
-        }
+namespace humans_and_animals{
+    public class giraff : Vegan{
     }
-    public class Eater{
-        //ingen check, just eat
+    public class elephant : Vegan{
+
     }
-    public class Vegans : SactuaryResidents{
-        //kontroll så de endast kan äta växter?
+    public class wolf : Predator{
+
     }
-    public class Predators : SactuaryResidents{
-        //Check only eat meat?
+    public class seal : Predator{
+
+    }
+    public class bear : Eater{
+
     }
 }
