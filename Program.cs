@@ -48,9 +48,11 @@ namespace humans_and_animals
             animals.Add(Lisa);
             Cyotee Åke = new Cyotee();
             Åke.name = "Åke";
+            Åke.hungerLevel = 7;
             animals.Add(Åke);
             Cyotee Göran = new Cyotee();
             Göran.name = "Göran";
+            Göran.hungerLevel = 3;
             animals.Add(Göran);
 
             Seal Gösta = new Seal();
@@ -73,8 +75,10 @@ namespace humans_and_animals
             Bear Felix = new Bear();
             Felix.name = "Felix";
             animals.Add(Felix);
+            Felix.hungerLevel = 1;
             Bear Konrad = new Bear();
             Konrad.name = "Konrad";
+            Konrad.hungerLevel = 3;
             animals.Add(Konrad);
 
 
@@ -93,7 +97,7 @@ namespace humans_and_animals
                 //loopa igenom alla djur och mata dom med rätt mat 
                 foreach (SactuaryResidents Resident in animals)
                 {
-                    if (Resident.IsHungry)
+                    if (Resident.CheckHunger(Resident))
                     {
                         if (Resident.FoodType == "grass")
                         {

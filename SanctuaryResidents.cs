@@ -20,6 +20,15 @@ namespace humans_and_animals
             hungerLevel = 0;
             return food--;
         }
+        public bool CheckHunger(SactuaryResidents animal){
+            if (animal.maxHunger == animal.hungerLevel){
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
     }
     public class Eater : SactuaryResidents
     {
