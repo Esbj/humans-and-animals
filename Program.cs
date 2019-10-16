@@ -8,18 +8,19 @@ namespace humans_and_animals
 {
     class Program
     {
-        static List <SactuaryResidents> animals = new List<SactuaryResidents>();
-        static void printAnimals(){
+        static List<SactuaryResidents> animals = new List<SactuaryResidents>();
+        static void printAnimals()
+        {
             Console.WriteLine("I djur helgedomen finns det:");
-            
-            foreach(SactuaryResidents Resident in animals){
-                Console.WriteLine("En "+Resident.Species+" som heter "+Resident.name);
- 
-            }
+
+            // foreach(SactuaryResidents Resident in animals){
+            //     Console.WriteLine("En "+Resident.Species+" som heter "+Resident.name);
+
+            // }
         }
         static void Main(string[] args)
         {
-            
+
 
             //Deklarerar djur, ger dom namn och lägger till i listan
             giraffe Amanda = new giraffe();
@@ -28,71 +29,102 @@ namespace humans_and_animals
             giraffe Veronica = new giraffe();
             Veronica.name = "Veronica";
             animals.Add(Veronica);
-            giraffe BrittMarie = new giraffe();
-            BrittMarie.name = "Britt-Marie";
-            animals.Add(BrittMarie);
+            giraffe Jimmy = new giraffe();
+            Jimmy.name = "Jimmy";
+            animals.Add(Jimmy);
 
-            elephant Bella = new elephant();
-            Bella.name = "Bella";
-            animals.Add(Bella);
-            elephant Olle = new elephant();
+            Elephant Berit = new Elephant();
+            Berit.name = "Bella";
+            animals.Add(Berit);
+            Elephant Olle = new Elephant();
             Olle.name = "Olle";
             animals.Add(Olle);
-            elephant Theodor = new elephant();
+            Elephant Theodor = new Elephant();
             Theodor.name = "Theodor";
             animals.Add(Theodor);
 
-            cyotee Lisa = new cyotee();
+            Cyotee Lisa = new Cyotee();
             Lisa.name = "Lisa";
             animals.Add(Lisa);
-            cyotee Åke = new cyotee();
+            Cyotee Åke = new Cyotee();
             Åke.name = "Åke";
             animals.Add(Åke);
-            cyotee Göran = new cyotee();
+            Cyotee Göran = new Cyotee();
             Göran.name = "Göran";
             animals.Add(Göran);
 
-            seal Gösta = new seal();
+            Seal Gösta = new Seal();
             Gösta.name = "Gösta";
             animals.Add(Gösta);
             Gösta.hungerLevel = 10;
-            seal Erika = new seal();
+            Seal Erika = new Seal();
             Erika.name = "Erika";
             Erika.hungerLevel = 5;
             animals.Add(Erika);
 
-            bear Ola = new bear();
+            Bear Ola = new Bear();
             Ola.name = "Ola";
             Ola.hungerLevel = 2;
             animals.Add(Ola);
-            bear Ulla = new bear();
+            Bear Ulla = new Bear();
             Ulla.name = "Ulla";
             Ulla.hungerLevel = 1;
             animals.Add(Ulla);
-            bear Felix = new bear();
+            Bear Felix = new Bear();
             Felix.name = "Felix";
             animals.Add(Felix);
-            bear Konrad = new bear();
+            Bear Konrad = new Bear();
             Konrad.name = "Konrad";
             animals.Add(Konrad);
+
 
             int nrOfMeatLeft = 50;
             int nrOfVeggiesLeft = 50;
             int food = nrOfMeatLeft + nrOfVeggiesLeft;
             int day = 0;
             // Day loop
-            while (food > 0){
+            while (food > 0)
+            {
                 day++;
                 Console.WriteLine("-------");
                 Console.WriteLine("Dag " + day + ":");
                 Console.WriteLine("-------");
 
-                // LÄGG TILL DIN NYA KOD HÄR
-
-                // Wait for the next day
-                Console.ReadKey();
+                //loopa igenom alla djur och mata dom med rätt mat 
+                foreach (SactuaryResidents Resident in animals)
+                {
+                    if (Resident.IsHungry)
+                    {
+                        if (Resident.FoodType == "grass")
+                        {
+                            nrOfVeggiesLeft = Resident.Eat(nrOfVeggiesLeft);
+                        }
+                        else if (Resident.FoodType == "meat")
+                        {
+                            //mata med kött
+                            nrOfMeatLeft = Resident.Eat(nrOfMeatLeft);
+                        }
+                        else
+                        {
+                            if (nrOfMeatLeft > nrOfVeggiesLeft)
+                            {
+                                //mata med kött
+                                nrOfMeatLeft = Resident.Eat(nrOfMeatLeft);
+                            }
+                            else
+                            {
+                                //mata med växt
+                                nrOfVeggiesLeft = Resident.Eat(nrOfVeggiesLeft);
+                            }
+                        }
+                    }
+                Resident.hungerLevel++;                    
+                }
+                    // Wait for the next day
+                    Console.WriteLine("Tryck för att gå vidare till nästa dag");
+                    Console.ReadKey();
+                }
+                Console.WriteLine("Maten är slut! ");
             }
-            Console.WriteLine("Maten är slut! ");
         }
     }
-}
