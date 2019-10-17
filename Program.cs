@@ -84,11 +84,13 @@ namespace humans_and_animals
 
             int nrOfMeatLeft = 50;
             int nrOfVeggiesLeft = 50;
-            int food = nrOfMeatLeft + nrOfVeggiesLeft;
+            int food = 100;
             int day = 0;
             // Day loop
             while (food > 0)
             {
+                Console.Clear();
+                food = nrOfMeatLeft + nrOfVeggiesLeft;
                 day++;
                 Console.WriteLine("-------");
                 Console.WriteLine("Dag " + day + ":");
@@ -102,11 +104,13 @@ namespace humans_and_animals
                         if (Resident.FoodType == "grass")
                         {
                             nrOfVeggiesLeft = Resident.Eat(nrOfVeggiesLeft);
+                            Console.WriteLine(Resident.name+" åt gräs");
                         }
                         else if (Resident.FoodType == "meat")
                         {
                             //mata med kött
                             nrOfMeatLeft = Resident.Eat(nrOfMeatLeft);
+                            Console.WriteLine(Resident.name+" åt kött");
                         }
                         else
                         {
@@ -114,17 +118,24 @@ namespace humans_and_animals
                             {
                                 //mata med kött
                                 nrOfMeatLeft = Resident.Eat(nrOfMeatLeft);
+                                Console.WriteLine(Resident.name+" åt kött");
                             }
                             else
                             {
                                 //mata med växt
                                 nrOfVeggiesLeft = Resident.Eat(nrOfVeggiesLeft);
+                                Console.WriteLine(Resident.name+" åt gräs");
+
                             }
                         }
                     }
                 Resident.hungerLevel++;                    
                 }
                     // Wait for the next day
+                    Console.WriteLine("Det finns "+nrOfMeatLeft+" kött");
+                    Console.WriteLine("Det finns "+nrOfVeggiesLeft+" görnsaker");
+                    Console.WriteLine("Det finns "+food+" mat totalt");
+                    Console.WriteLine("----------------------------------------");
                     Console.WriteLine("Tryck för att gå vidare till nästa dag");
                     Console.ReadKey();
                 }

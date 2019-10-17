@@ -18,7 +18,8 @@ namespace humans_and_animals
         public int Eat(int food)
         {
             hungerLevel = 0;
-            return food--;
+            food--;
+            return food;
         }
         public bool CheckHunger(SactuaryResidents animal){
             if (animal.maxHunger == animal.hungerLevel){
