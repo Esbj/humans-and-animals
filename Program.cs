@@ -101,12 +101,16 @@ namespace humans_and_animals
                     {
                         if (Resident.FoodType == "grass")
                         {
+                            //mata gräs
                             nrOfVeggiesLeft = Resident.Eat(nrOfVeggiesLeft);
+                            Console.WriteLine(Resident.name+" var hungrig och åt en enhet gräs");
                         }
                         else if (Resident.FoodType == "meat")
                         {
                             //mata med kött
                             nrOfMeatLeft = Resident.Eat(nrOfMeatLeft);
+                            Console.WriteLine(Resident.name+" var hungrig och åt en bit kött");
+
                         }
                         else
                         {
@@ -114,19 +118,26 @@ namespace humans_and_animals
                             {
                                 //mata med kött
                                 nrOfMeatLeft = Resident.Eat(nrOfMeatLeft);
+                                Console.WriteLine(Resident.name+" var hungrig och åt en bit kött");
                             }
                             else
                             {
                                 //mata med växt
                                 nrOfVeggiesLeft = Resident.Eat(nrOfVeggiesLeft);
+                                Console.WriteLine(Resident.name+" var hungrig och åt en enhet blad");
                             }
                         }
                     }
                 Resident.hungerLevel++;                    
                 }
                     // Wait for the next day
+                    Console.WriteLine("-------------");
+                    Console.WriteLine("Det finns "+food+" mat kvar.");
+                    Console.WriteLine(nrOfMeatLeft+" kött");
+                    Console.WriteLine(nrOfVeggiesLeft+" grönsaker");
                     Console.WriteLine("Tryck för att gå vidare till nästa dag");
                     Console.ReadKey();
+                    Console.Clear();
                 }
                 Console.WriteLine("Maten är slut! ");
             }
